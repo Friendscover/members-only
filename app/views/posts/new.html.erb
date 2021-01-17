@@ -1,0 +1,5 @@
+<%= form_for @posts, method: :post do |form| %>
+  Title: <%= form.text_field :title, placeholder: "Add a title to your Post." %><br />
+  Body: <%= form.text_area :body, placeholder: "Type your Post here!" %><br />
+  <%= form.submit "Submit your Post" %>
+<% end %>

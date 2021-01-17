@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <%= link_to "Create a new Secret Post!", new_post_path %> 
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %><br />
+<h1> Super Secret Club! </h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2><%= post.title %></h2>
+    <% if user_signed_in? %>
+      <p> <%= post.user.email %></p>
+    <% end %>
+    <p><%= post.body %></p><br />
+  </div>
+  
+<% end %>
